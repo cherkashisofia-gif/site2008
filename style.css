@@ -1,0 +1,1035 @@
+/* =========================================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #090b12;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Убираем стандартное подчёркивание ссылок */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(7, 8, 14, 0.85);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #ffb52e;
+}
+
+
+/* Мобильная кнопка */
+
+.menu-button {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: white;
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 8% 80px;
+
+    overflow: hidden;
+}
+
+
+/*
+    ФОН HERO
+
+    Чтобы использовать свою картинку:
+
+    замените background-image:
+
+    background-image: url("images/hero.jpg");
+*/
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(5,7,12,0.95) 0%,
+            rgba(5,7,12,0.7) 45%,
+            rgba(5,7,12,0.25) 100%
+        ),
+        radial-gradient(
+            circle at 75% 40%,
+            #35305c,
+            #090b12 60%
+        );
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.small-title,
+.section-label {
+    color: #ffb52e;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 100px);
+
+    line-height: 0.95;
+
+    font-weight: 1000;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span,
+h2 span {
+    color: #ffb52e;
+}
+
+.hero-description {
+    max-width: 600px;
+
+    font-size: 18px;
+
+    color: #c6c9d3;
+
+    margin-bottom: 35px;
+}
+
+
+/* Кнопки */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.main-button,
+.secondary-button,
+.boss-button {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    font-weight: 900;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-button {
+    background: #ffb52e;
+    color: #111;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(255,181,46,0.25);
+}
+
+.secondary-button {
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.secondary-button:hover {
+    background: white;
+    color: #111;
+}
+
+.scroll-hint {
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #888;
+}
+
+
+/* =========================================
+   INFO CARDS
+========================================= */
+
+.game-info {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    background: #11141d;
+
+    border-top: 1px solid #252936;
+    border-bottom: 1px solid #252936;
+}
+
+.info-card {
+    padding: 35px 20px;
+
+    text-align: center;
+
+    border-right: 1px solid #252936;
+}
+
+.info-card:last-child {
+    border-right: none;
+}
+
+.info-card span {
+    font-size: 30px;
+}
+
+.info-card h3 {
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+.info-card p {
+    color: #777d8c;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   COMMON SECTIONS
+========================================= */
+
+.section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 120px 6%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.section h2,
+.section-heading h2,
+.cta h2 {
+    font-size: clamp(40px, 5vw, 70px);
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+}
+
+.section-text > p {
+    color: #aeb3c0;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   IMAGE PLACEHOLDERS
+========================================= */
+
+.section-image,
+.weapon-image {
+    min-height: 450px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    min-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 2px dashed #3b4050;
+
+    background:
+        radial-gradient(
+            circle,
+            #24283a,
+            #10121a
+        );
+
+    color: #858b9b;
+
+    text-align: center;
+}
+
+.image-placeholder span {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+}
+
+.image-placeholder p {
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.image-placeholder small {
+    margin-top: 5px;
+    color: #555b6b;
+}
+
+
+/* =========================================
+   STORY QUOTE
+========================================= */
+
+.quote {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    border-left: 3px solid #ffb52e;
+
+    background: #11141d;
+
+    color: #ddd;
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   WORLDS
+========================================= */
+
+.worlds-section {
+    padding: 120px 6%;
+
+    background: #0d1018;
+}
+
+.section-heading {
+    max-width: 700px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+.section-heading > p:last-child {
+    color: #858b9b;
+}
+
+.world-grid {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.world-card {
+    background: #151923;
+
+    border: 1px solid #252a38;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.world-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #ffb52e;
+}
+
+.world-image {
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 70px;
+}
+
+
+/*
+    Здесь можно установить свои картинки.
+
+    Например:
+
+    .world-1 {
+        background-image: url("images/world1.jpg");
+    }
+*/
+
+.world-1 {
+    background:
+        linear-gradient(135deg, #172a25, #0b1010);
+}
+
+.world-2 {
+    background:
+        linear-gradient(135deg, #542819, #160c0a);
+}
+
+.world-3 {
+    background:
+        linear-gradient(135deg, #233b58, #0b111d);
+}
+
+.world-4 {
+    background:
+        linear-gradient(135deg, #251b38, #09070f);
+}
+
+.world-content {
+    padding: 25px;
+}
+
+.world-number {
+    color: #ffb52e;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.world-content h3 {
+    margin: 8px 0 10px;
+}
+
+.world-content p {
+    color: #858b9b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   WEAPONS
+========================================= */
+
+.weapon-list {
+    margin-top: 35px;
+}
+
+.weapon {
+    display: flex;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+    padding: 20px;
+
+    background: #11141d;
+
+    border: 1px solid #252a38;
+}
+
+.weapon-icon {
+    font-size: 35px;
+}
+
+.weapon h3 {
+    margin-bottom: 5px;
+}
+
+.weapon p {
+    color: #858b9b;
+}
+
+
+/* =========================================
+   ARTIFACTS
+========================================= */
+
+.artifacts {
+    padding: 120px 6%;
+
+    background: #0d1018;
+}
+
+.artifact-grid {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.artifact-card {
+    padding: 35px;
+
+    text-align: center;
+
+    background: #151923;
+
+    border: 1px solid #252a38;
+
+    transition: 0.3s;
+}
+
+.artifact-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #ffb52e;
+}
+
+.artifact-card > div {
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.artifact-card p {
+    margin-top: 10px;
+
+    color: #858b9b;
+}
+
+
+/* =========================================
+   BOSS SECTION
+========================================= */
+
+.boss-section {
+    min-height: 700px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/*
+    ДОБАВЬТЕ ФОН БОССА:
+
+    background-image:
+        url("images/dark-lord.jpg");
+*/
+
+.boss-section {
+    background:
+        radial-gradient(
+            circle at center,
+            #40234f,
+            #08070d 65%
+        );
+}
+
+.boss-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.2),
+            rgba(0,0,0,0.8)
+        );
+}
+
+.boss-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.boss-content h2 {
+    font-size: clamp(60px, 10vw, 130px);
+
+    line-height: 0.85;
+
+    margin-bottom: 30px;
+}
+
+.boss-content p {
+    max-width: 500px;
+
+    margin: 0 auto 30px;
+
+    color: #b7bac5;
+}
+
+.boss-button {
+    border: none;
+
+    background: #ffb52e;
+
+    color: #111;
+}
+
+.boss-button:hover {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta {
+    padding: 130px 20px;
+
+    text-align: center;
+
+    background: #11141d;
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+}
+
+.cta > p:not(.section-label) {
+    color: #858b9b;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #07080d;
+
+    border-top: 1px solid #202431;
+}
+
+.footer-logo {
+    font-weight: 900;
+
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #777d8c;
+
+    font-size: 13px;
+}
+
+.footer-small {
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .navbar nav {
+        display: none;
+
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        background: #0c0e15;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .navbar nav.active {
+        display: flex;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .game-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .world-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .artifact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 120px 25px 80px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .main-button,
+    .secondary-button {
+        text-align: center;
+        width: 100%;
+    }
+
+    .game-info {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        border-right: none;
+
+        border-bottom: 1px solid #252936;
+    }
+
+    .world-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .world-image {
+        height: 220px;
+    }
+
+    .section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .worlds-section,
+    .artifacts {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .section-image,
+    .weapon-image {
+        min-height: 300px;
+    }
+
+    .image-placeholder {
+        min-height: 300px;
+    }
+
+    .boss-section {
+        min-height: 600px;
+    }
+/* =========================================
+   GAME GALLERY
+========================================= */
+
+.gallery-section {
+    padding: 120px 6%;
+    background: #090b12;
+}
+
+
+/* Сетка изображений */
+
+.gallery-grid {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Карточка */
+
+.gallery-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #151923;
+
+    border: 1px solid #252a38;
+
+    border-radius: 8px;
+
+    min-height: 350px;
+
+    transition: transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+
+/* Изображение */
+
+.gallery-card img {
+    width: 100%;
+    height: 420px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* Затемнение */
+
+.gallery-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 60%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(5, 6, 10, 0.95)
+    );
+
+    pointer-events: none;
+}
+
+
+/* Текст поверх изображения */
+
+.gallery-caption {
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+    bottom: 22px;
+
+    z-index: 2;
+}
+
+
+.gallery-caption span {
+    color: #ffb52e;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.gallery-caption h3 {
+    margin-top: 5px;
+
+    font-size: 24px;
+}
+
+
+.gallery-caption p {
+    margin-top: 5px;
+
+    color: #b7bac5;
+
+    font-size: 14px;
+}
+
+
+/* Hover */
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #ffb52e;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+
+.gallery-card:hover img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================
+   GALLERY MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .gallery-section {
+        padding: 80px 25px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card img {
+        height: 350px;
+    }
+
+}
+
